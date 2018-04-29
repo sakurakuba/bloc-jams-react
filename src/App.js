@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Link} from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import Landing from './components/Landing';
 import Library from './components/Library';
@@ -12,7 +11,7 @@ class App extends Component {
       <div className="App">
         <header>
           <nav>
-            <Link to='/'>Landing</Link>
+            <Link to='/'>Landing </Link>
             <Link to='/library'>Library</Link>
             </nav>
           <h1>Bloc Jams</h1> 
@@ -20,7 +19,7 @@ class App extends Component {
         <main>
           <Route exact path="/" Component={Landing} />
           <Route path="/library" Component={Library} />
-          <Route path="/album" Component={Album} />
+          <Route path="/album/:slug" Component={Album} />
         </main>
       </div>
     );
