@@ -9,16 +9,14 @@ class Album extends Component {
             return album.slug === this.props.match.params.slug
         });
 
-        this.state = {
-            album: album
-        };
+        this.state = { album: album };
     }
 
     render() {
         return (
             <section className="album">
                 <section id="album-info">
-                <img id="album-cover-art" src={this.state.album.albumCover} />
+                <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.albumCover} />
                 <div className="album-details">
                     <h1 id="album-title">{this.state.album.title}</h1>
                     <h2 className="artist">{this.state.album.artist}</h2>
@@ -31,8 +29,17 @@ class Album extends Component {
                      <col id="song-title-column" />
                      <col id="song-duration-column" />
                     </colgroup>  
-                    <tbody>
-                    </tbody>
+                    
+                <tbody className="album">
+           {
+            this.state.album.songs.map( (songs, index) =>
+            <tr key={index} album={ this.state.album } >
+            <td>{songs.title}</td>
+            <td>{songs.duration}</td>
+            </tr>
+            )
+           }
+                </tbody>
                 </table>
             </section>
         );
