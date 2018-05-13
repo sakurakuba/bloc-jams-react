@@ -113,7 +113,7 @@ class Album extends Component {
                     <div id="release-info">{this.state.album.releaseInfo}</div>
                 </div>
                 </section>
-                <table id="song-list">
+                <table id="song-list" className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                     <colgroup>
                      <col id="song-number-column" />
                      <col id="song-title-column" />
@@ -125,7 +125,7 @@ class Album extends Component {
             this.state.album.songs.map( (song, index) =>
             <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
             <td className="song-actions">
-            <button>
+            <button className="mdl-button mdl-js-button mdl-button--raised">
               <span className="song-number">{index+1}</span>
               <span className="ion-play"></span>
               <span className="ion-pause"></span>
