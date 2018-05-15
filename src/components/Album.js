@@ -99,7 +99,11 @@ class Album extends Component {
     formatTime(timeInSeconds) {
         const minutesTime = Math.floor(timeInSeconds / 60);
         const secondsTime = Math.floor(timeInSeconds % 60);
+        if (timeInSeconds % 60 < 10 ) {
+            return minutesTime + ":0" + secondsTime; 
+        } else {
         return minutesTime + ":" + secondsTime;
+        }
     }
 
     render() {
@@ -132,7 +136,7 @@ class Album extends Component {
             </button>
           </td>
             <td className="song-title">{song.title}</td>
-            <td className="song-duration">{song.duration}</td>
+            <td className="song-duration">{this.formatTime(song.duration)}</td>
             </tr>
             )
            }
